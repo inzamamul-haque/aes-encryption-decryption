@@ -1,0 +1,41 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  justify-content: center;
+}
+
+mat-card {
+  background-color: #fafafa;
+  padding: 20px;
+}
+
+.card {
+  all: unset;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  height: 350px;
+  width: 400px;
+  margin: 0 8px 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.spacer {
+  flex: 1;
+}

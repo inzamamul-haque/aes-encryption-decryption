@@ -1,0 +1,173 @@
+<div class="content">
+  <mat-card class="card-background -mt-4">
+    <h2 style="text-align: center; color: white; background-color: #1976d2; font-size: large ">Encryption Process</h2>
+    <!-- Card Body -->
+    <form [formGroup]="frmGroup" class="p-4 border3">
+      <!-- -----------1st Row----------- -->
+      <div class="grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
+        <div>
+          <div>
+            <span class="text-gray-700">RSA Public Key</span>
+          </div>
+          <div>
+            <mat-form-field class="w-full">
+              <input readonly matInput formControlName="rsaPublicKey">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div>
+
+          <div>
+            <span class="text-gray-700"> AES KEY</span>
+          </div>
+          <div>
+            <mat-form-field class="w-full">
+              <input minlength="16" maxlength="16" required matInput formControlName="aesKey">
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div>
+          <div>
+            <span style="color: green">Invoice Data</span>
+          </div>
+
+          <div>
+            <mat-form-field class="w-full">
+              <input style="color: green" matInput formControlName="invoiceData">
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div>
+          <div>
+            <span class="text-gray-700">Encrypt Data by AES KEY</span>
+          </div>
+
+          <div>
+            <mat-form-field class="w-full">
+              <input readonly matInput formControlName="encryptedDataByAesKey">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <span class="text-gray-700">Encrypt Data by RSA PUBLIC KEY</span>
+          </div>
+
+          <div>
+            <mat-form-field class="w-full">
+              <input readonly matInput formControlName="encryptedDataByRsaKey">
+            </mat-form-field>
+          </div>
+        </div>
+
+      </div>
+      <!-- -----------/1st Row----------- -->
+
+      <!--Action Button-->
+      <div style="display: flex; justify-content: space-between; margin: 4px">
+        <button
+          [disabled]="!frmGroup.valid"
+          style="margin-right: 20px"
+          mat-flat-button
+          color="accent"
+          (click)="encryptDataByAesKey()"
+          type="button">
+          <mat-icon class="mr-1">save</mat-icon>
+          1. Encrypt By AES KEY
+        </button>
+
+        <button
+          [disabled]="!frmGroup.valid"
+          class="px-5 mr-2"
+          mat-flat-button
+          color="accent"
+          (click)="encryptDataByRsaKey()"
+          type="button">
+          <mat-icon class="mr-1">save</mat-icon>
+          2. Encrypt By RSA PUBLIC KEY
+        </button>
+      </div>
+
+    </form>
+  </mat-card>
+
+  <mat-card class="card-background -mt-4">
+    <h2 style="text-align: center; color: white; background-color: #1976d2; font-size: large">Decryption Process</h2>
+    <!-- Card Body -->
+    <form [formGroup]="frmGroup" class="p-4 border3">
+      <!-- -----------1st Row----------- -->
+      <div class="grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
+
+        <div>
+          <div>
+            <span class="text-gray-700">RSA Private Key</span>
+          </div>
+          <div>
+            <mat-form-field class="w-full">
+              <input readonly matInput formControlName="rsaPrivateKey">
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div>
+          <div>
+            <span class="text-gray-700">Decrypt Data By Private Key</span>
+          </div>
+          <div>
+            <mat-form-field class="w-full">
+              <input readonly matInput formControlName="decryptedDataByRsaKey">
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div>
+          <div class="">
+            <span style="color: green" class="text-gray-700">Decrypt Invoice Data By AES Key</span>
+          </div>
+
+          <div class="">
+            <mat-form-field class="w-full">
+              <input style="color: green" readonly matInput formControlName="decryptedDataByAesKey">
+            </mat-form-field>
+          </div>
+
+        </div>
+      </div>
+      <!-- -----------/1st Row----------- -->
+
+      <!--Action Button-->
+      <div style="display: flex; justify-content: space-between; margin: 4px">
+
+        <button
+          [disabled]="!frmGroup.valid"
+          style="margin-right: 30px"
+          mat-flat-button
+          color="accent"
+          (click)="decryptDataByRsaKey()"
+          type="button">
+          <mat-icon class="mr-1">save</mat-icon>
+          3. Decrypt By RSA PRIVATE KEY
+        </button>
+
+        <button
+          [disabled]="!frmGroup.valid"
+          mat-flat-button
+          color="accent"
+          (click)="decryptDataByAesKey()"
+          type="button">
+          <mat-icon class="mr-1">save</mat-icon>
+          4. Decrypt By AES KEY
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+
